@@ -1,0 +1,57 @@
+$desktop-min: 1024px
+$widescreen-min: 1440px
+$mobile-max: 425px
+$tablet-max: 768px
+
+@mixin from-tablet()
+    @media screen and ( min-width: $tablet-max + 1)
+        @content
+
+@mixin from-desktop()
+    @media screen and ( min-width: $desktop-min)
+        @content
+
+@mixin from-widescreen()
+    @media screen and ( min-width: $widescreen-min)
+        @content
+
+@mixin from-mob()
+    @media screen and ( min-width: $mobile-max + 1 )
+        @content
+    
+///////////
+@mixin while-mob()
+    @media screen and ( max-width: $mobile-max  )
+        @content
+
+@mixin until-tablet()
+	@media screen and ( max-width: $tablet-max)
+        @content
+
+@mixin until-desktop()
+	@media screen and ( max-width: $desktop-min - 1)
+        @content
+
+@mixin until-widescreen()
+	@media screen and ( max-width: $widescreen-min - 1)
+        @content
+
+///////////
+
+@mixin media-until($width)
+    @media screen and ( max-width: $width)
+        @content
+
+@mixin media-from($width)
+    @media screen and ( min-width: $width)
+        @content
+
+@mixin placeholder() 
+  &::-webkit-input-placeholder  
+      @content
+  &:-moz-placeholder            
+      @content
+  &::-moz-placeholder           
+      @content
+  &:-ms-input-placeholder       
+      @content 

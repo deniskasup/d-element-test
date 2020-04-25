@@ -1,0 +1,97 @@
+@import '_fonts'
+@import '_mixins'
+
+// osnova=====================================================================================================================================
+
+
+body
+    font-family: 'Gilroy'
+    padding: 0
+    margin: 0
+    color: #1F3F68
+    & *
+        box-sizing: border-box
+   
+
+ul, h1, h2, h3, h4, a
+    list-style: none
+    padding: 0
+    margin: 0
+    text-decoration: none
+
+.wrap
+    position: relative
+    height: 100%
+    overflow: hidden
+
+.wrapper
+    width: 100%
+    max-width: 972px
+    padding: 0 1rem
+    margin: 0 auto
+    position: relative
+    display: flex
+    align-items: center
+    box-sizing: border-box
+
+
+
+// buttons, inputs=================================================================================================================================
+button
+    text-align: center
+    cursor: pointer
+    background: none
+    border: none
+    color: white
+    font-size: 1rem
+    &:active
+        outline: none
+        opacity: 0.7
+    &:focus
+        outline: none
+
+input[type = text], input[type = tel], input[type = email]
+a
+    &:active
+        outline: none
+        opacity: 0.8
+    &:focus
+        outline: none
+    
+input:focus, input:active, select:focus, select:active, textarea:focus, textarea:active
+    outline: none
+
+// text==============================================================================================================================================
+
+// TEXT
+
+p
+    margin: 0
+    padding: 0
+    font-size: 1rem
+    font-weight: normal
+    letter-spacing: 0.05em
+
+span
+    letter-spacing: 0.05em
+    font-size: 1rem
+
+
+.header1, .header2, .header3
+    margin: 0
+    padding: 0
+
+
+.header1
+    font-size: 4rem
+    font-weight: bold
+    font-family: Galien
+    letter-spacing: 0.04em
+    
+.header2
+    letter-spacing: 0.05em
+    font-weight: 600
+    color: #316099
+    font-size: 2.25rem
+
+.header3

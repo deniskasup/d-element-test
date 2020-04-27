@@ -1,0 +1,116 @@
+.footer
+    padding-top: 4rem
+    margin-bottom: 4rem
+    padding-left: 96px
+    +media-until($desktop)
+        padding-left: 0
+    & .wrapper
+        align-items: flex-start
+        +until-tablet
+            flex-direction: column
+            align-items: center
+    &__logo
+        color: #316099
+        display: flex
+        align-items: center
+        margin-bottom: 40px
+        +until-tablet
+            justify-content: center
+        & > div
+            width: 32px
+            height: 32px
+            display: flex
+            align-items: center
+            justify-content: space-around
+            border-radius: 50%
+        & span
+            font-size: 28px
+            color: white
+            font-weight: 600
+            line-height: 46px
+        &-left
+            background:#98C3E8
+        &-right
+            font-weight: bold
+            font-size: 20px
+            letter-spacing: unset
+            position: relative
+            left: -16px
+            background: white
+            border: 2px solid #316099
+    &__info
+        margin-right: 100px
+        width: 100%
+        max-width: 300px
+        display: flex
+        flex-direction: column
+        +until-tablet
+            margin-right: 0
+            margin-bottom: 40px
+            align-items: center
+        &-contacts
+            display: flex
+            flex-direction: column
+            +until-tablet
+                max-width: 230px
+            &-item
+                display: flex
+                color: white
+                
+                &:not(:last-of-type)
+                    margin-bottom: 24px
+                &::before
+                    line-height: 1.625rem
+                    margin-right: 16px
+                    font-weight: 600
+                & a
+                    color: white
+                &:nth-of-type(1)::before
+                    content: 'A.'
+                &:nth-of-type(2)::before
+                    content: 'T.'
+                &:nth-of-type(3)::before
+                    content: 'E.'
+    &__nav
+        display: flex
+        justify-content: space-between
+        width: 100%
+        max-width: 460px
+        +until-tablet
+            flex-direction: column
+            align-items: center
+
+    &__links
+        // margin-right: 77px
+        flex-shrink: 0
+        width: 100%
+        max-width: 220px
+        +until-tablet
+            flex-direction: column
+            align-items: center
+            margin-bottom: 30px
+        &-title
+            color: white
+            margin-bottom: 2rem
+            +until-tablet 
+                text-align: center
+        &-list
+            display: flex
+            flex-direction: column
+            +until-tablet
+                align-items: center
+            &-item
+                width: max-content
+                margin-bottom: 1rem
+                &:hover a
+                    opacity: 0.9
+                & a
+                    color: white
+
+.copyright
+    padding-bottom: 64px
+    +until-tablet
+        padding-bottom: 24px
+    & p
+        color: white
+        opacity: 0.4

@@ -1,0 +1,39 @@
+.work
+    width: 100%
+    padding: 6rem
+    padding-right: 0
+    +media-until($desktop)
+        padding-left: 0
+    & .wrapper
+        +until-desktop
+            justify-content: space-between
+        +until-tablet
+            flex-direction: column
+    &__content
+        margin-right: 180px
+        display: flex
+        flex-direction: column
+        +until-desktop
+            margin-bottom: 40px
+            margin-right: 0
+        +until-tablet
+            align-items: center
+        &-title
+            max-width: 320px
+            color: white
+            margin-bottom: 32px
+        &-text
+            color: white
+            max-width: 460px
+            +until-tablet
+                text-align: center
+    &__callback
+        @extend %button
+        max-width: 220px
+    
+.line
+    opacity: 0.4
+    margin-right: 197px
+    border-top: 1px solid white
+    +until-desktop
+        margin-right: 0

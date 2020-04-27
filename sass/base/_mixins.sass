@@ -1,43 +1,47 @@
-$desktop-min: 1024px
-$widescreen-min: 1440px
-$mobile-max: 425px
-$tablet-max: 768px
+$desktop: 1024px
+$widescreen: 1440px
+$mobile: 425px
+$tablet: 768px
 
 @mixin from-tablet()
-    @media screen and ( min-width: $tablet-max + 1)
+    @media screen and ( min-width: $tablet)
         @content
 
 @mixin from-desktop()
-    @media screen and ( min-width: $desktop-min)
+    @media screen and ( min-width: $desktop)
         @content
 
 @mixin from-widescreen()
-    @media screen and ( min-width: $widescreen-min)
+    @media screen and ( min-width: $widescreen)
         @content
 
 @mixin from-mob()
-    @media screen and ( min-width: $mobile-max + 1 )
+    @media screen and ( min-width: $mobile)
         @content
     
-///////////
-@mixin while-mob()
-    @media screen and ( max-width: $mobile-max  )
-        @content
+///////////////
 
 @mixin until-tablet()
-	@media screen and ( max-width: $tablet-max)
+	@media screen and ( max-width: $tablet - 1)
         @content
 
 @mixin until-desktop()
-	@media screen and ( max-width: $desktop-min - 1)
+	@media screen and ( max-width: $desktop - 1)
         @content
 
 @mixin until-widescreen()
-	@media screen and ( max-width: $widescreen-min - 1)
+	@media screen and ( max-width: $widescreen - 1)
         @content
 
-///////////
 
+
+///////////
+@mixin while-mob()
+    @media screen and ( max-width: $mobile)
+        @content
+
+
+///////////
 @mixin media-until($width)
     @media screen and ( max-width: $width)
         @content
@@ -45,6 +49,7 @@ $tablet-max: 768px
 @mixin media-from($width)
     @media screen and ( min-width: $width)
         @content
+        
 
 @mixin placeholder() 
   &::-webkit-input-placeholder  

@@ -1,39 +1,36 @@
 .burger 
-  width: 30px
-  height: 30px
-  justify-content: center
-  align-items: center
-  display: none
+  width: 24px
+  height: 16px
+  display: block
   position: relative
   z-index: 5
-  +media-until(768px)
-    display: block
+  
 
 .burger__icon 
   position: relative
-  width:  30px
-  top: 13px
-  height: 3px
-  background-color: #F2994A
+  width:  24px
+  top: 8px
+  height: 2px
+  background-color: #356EAD
 
 .burger__icon::before 
   position: absolute
   left: 0
-  top: -10px
+  top: -8px
   content: ''
-  width: 30px
-  height: 3px
-  background-color: #F2994A
+  width: 24px
+  height: 2px
+  background-color: #356EAD
   transition: transform 0.2s ease-in, top 0.2s linear 0.2s
 
 .burger__icon::after 
   position: absolute
   left: 0
-  top: 10px
+  top: 8px
   content: ''
-  width: 30px
-  height: 3px
-  background-color: #F2994A
+  width: 24px
+  height: 2px
+  background-color: #356EAD
   transition: transform 0.2s ease-in, top 0.2s linear 0.2s
 
 

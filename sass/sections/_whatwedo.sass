@@ -1,0 +1,110 @@
+.whatwedo
+    margin-top: 12rem
+    +until-desktop
+        margin-bottom: 10.75rem
+    & .wrapper
+        flex-direction: column
+        align-items: flex-start
+        +until-desktop
+            align-items: center
+    &__title
+        max-width: 360px
+        margin-bottom: 155px 
+        +until-desktop
+            margin-bottom: 60px   
+            align-self: flex-start
+        +until-tablet
+            align-self: unset
+    &__cards
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        position: relative
+        +until-desktop
+            justify-content: space-around
+
+    &__card
+        padding: 3rem
+        width: 100%
+        max-width: 380px
+        height: max-content
+        max-height: 525px
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        background: white
+        box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2)
+        border-radius: 10px
+        +until-desktop
+            margin-bottom: 60px
+        +media-until(320px)
+            padding: 2.5rem
+
+        &:nth-of-type(1) 
+            margin-left: 80px
+            margin-bottom: 541px
+            +until-desktop
+                margin-left: 0
+                margin-bottom: 60px
+            & .whatwedo__card-img
+                background: url('../img/card1.svg') no-repeat center
+                background-position-x: 16px
+
+        &:nth-of-type(2) 
+            position: absolute
+            right: 0
+            top: -283px
+            +until-desktop
+                position: static
+            & .whatwedo__card-img
+                background: url('../img/card2.svg') no-repeat center
+                & > *
+                    position: absolute
+                    border-radius: 6px
+                    width: 41px
+                    height: 41px
+                    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15)
+                    background: $sprite
+                &-flake
+                    left: 4.4375rem
+                    top: -3.75rem
+                    background-position: -1px -44px
+                &-cam
+                    right: 4.4375rem
+                    top: -3.75rem
+                    background-position: -19px -1px
+
+        &:nth-of-type(3) 
+            position: absolute
+            right: 0
+            top: 343px
+            +until-desktop
+                position: static
+            & .whatwedo__card-img
+                background: url('../img/card3.svg') no-repeat center
+            
+        &-img
+            width: 100%
+            position: relative
+            margin-bottom: 56px
+            height: 135px
+        &-title
+            text-align: left
+            margin-bottom: 16px
+        &-text
+            margin-bottom: 32px
+        &-link
+            width: max-content
+            color: #5A98D0
+            font-weight: 600
+            display: flex
+            align-items: center
+            line-height: 1.875rem
+            & svg
+                margin-left: 1.75rem
+                width: 1rem
+                height: 1rem
+            &:hover
+                color: #316099
+                & svg path
+                    fill: #316099

@@ -1,0 +1,40 @@
+.banner
+    width: 100%
+    & .wrapper
+        flex-direction: column
+        align-items: flex-start
+    &__content
+        margin-top: 6.25rem
+        margin-bottom: 190px
+        display: flex
+        flex-direction: column
+        +until-desktop
+            width: 100%
+            margin-bottom: 30px
+        +until-tablet
+            align-items: center
+        &-title
+            max-width: 515px
+            margin-bottom: 2rem
+        &-text
+            max-width: 425px
+            margin-bottom: 4.375rem
+            +until-tablet
+                text-align: center
+        &-button
+            @extend %button
+            max-width: 220px
+    &__img
+        position: absolute
+        right: -190px
+        top: 16px
+        z-index: -1
+        +until-desktop
+            position: static
+            align-self: center
+            width: 70%
+        +media-until(1300px)
+            right: -35px
+            top: 105px
+            width: 60%
+        

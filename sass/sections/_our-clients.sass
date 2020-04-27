@@ -1,0 +1,94 @@
+.our-clients
+    width: 100%
+    padding: 4rem 0 7.875rem 0
+    .wrapper
+        flex-direction: column
+    &__title
+        flex-shrink: 0
+        color: white
+        max-width: 225px
+        margin-right: 97px
+        +until-tablet
+            margin-right: 0
+            margin-bottom: 40px
+    &__text
+        color: white
+        max-width: 540px
+        +until-tablet
+            text-align: center
+    &__top
+        width: 100%
+        display: flex
+        margin-bottom: 123px
+        +until-tablet
+            margin-bottom: 50px
+            align-items: center
+            flex-direction: column
+    &__tables
+        width: 100%
+        display: flex
+        flex-direction: column
+    &__list
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        align-self: center
+        +until-desktop
+            max-width: 470px
+        +until-tablet
+            justify-content: space-around
+        &-item
+            width: 100%
+            max-width: 235px
+            height: 128px
+            display: flex
+            align-items: center
+            justify-content: space-around
+            flex-shrink: 0
+            &:not(:first-of-type)
+                border-left: 1px solid rgba(255, 255, 255, 0.6)
+            &:nth-of-type(4) ~ *
+                border-top: 1px solid rgba(255, 255, 255, 0.6)
+            &:nth-of-type(2) ~ *
+                +until-desktop
+                    border-top: 1px solid rgba(255, 255, 255, 0.6)
+            &:nth-of-type(5)
+                border-left: none
+            &:nth-of-type(odd)
+                +until-desktop
+                    border-right: 1px solid rgba(255, 255, 255, 0.6)
+                    border-left: none
+            &:nth-of-type(even)
+                +until-desktop
+                    border-left: none
+            +media-until(500px)
+                border: none !important
+            &:not(:last-of-type)
+                +media-until(500px)
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important
+                
+                
+                
+                
+                
+            & > a
+                width: 100%
+                height: 100%
+                background: rgba(31, 63, 104, 0.2)
+                &:hover
+                    background: rgba(31, 63, 104, 0.4)
+                    cursor: pointer
+            & > *
+                line-height: 46px
+                display: flex
+                align-items: center
+                justify-content: space-around
+                padding: 41px 46px
+                text-transform: uppercase
+                color: white
+            &:hover span
+                color: #F2F2F2
+        
+                
+    

@@ -1,0 +1,69 @@
+.contacts
+    margin-bottom: 6rem
+    & .wrapper
+        margin-top: 3.5625rem
+        justify-content: space-between
+        align-items: flex-start
+        +until-tablet
+            flex-direction: column
+            align-items: center
+    &__banner
+        margin-top: 2.5rem
+        height: 250px
+        width: 100%
+        background: url('../img/contacts-bg.svg') no-repeat center
+        background-size: cover
+        display: flex
+        flex-direction: column
+        align-items: center
+        &-title
+            font-size: 2.75rem
+            line-height: 4.625rem
+            font-weight: 600
+            color: white
+            margin-top: 3.1875rem
+            margin-bottom: 1rem
+        &-text
+            color: white
+            text-align: center
+            font-size: 1.25rem
+            line-height: 1.875rem
+            max-width: 780px
+    &__left
+        display: flex
+        flex-direction: column
+        width: 100%
+        max-width: 300px
+        &-img
+            margin-top: 3.9375rem
+            margin-bottom: 4.4375rem
+            height: 181px
+            background: url('../img/contacts-img.svg') no-repeat center
+            & ~ *
+                display: flex
+                flex-direction: column
+                margin-bottom: 2.5rem
+        & .header3  
+            text-align: left
+            margin-bottom: 1.5rem
+        & a
+            color: rgba(31, 63, 104, 0.6)
+            display: flex
+            align-items: center
+            &:not(:last-of-type)
+                margin-bottom: 1rem
+            & svg
+                margin-right: 1rem
+            &:hover
+                color: #1F3F68
+    &-map__container
+        width: 100%
+        height: 480px
+        margin-bottom: 6rem
+        
+        & img
+            width: 100%
+        +until-desktop
+            height: 375px
+        +until-tablet
+            height: 240px

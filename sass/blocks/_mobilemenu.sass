@@ -1,22 +1,160 @@
+@mixin transition
+  @for $i from 1 through 50
+    &:nth-child(#{$i})
+      transition: transform 1s #{$i * 0.08}s cubic-bezier(0.29, 1.4, 0.44, 0.96)
+
+@mixin alpha-attribute($attribute, $color, $background)
+  $percent: alpha($color) * 100%
+  $opaque: opacify($color, 1)
+  $solid-color: mix($opaque, $background, $percent)
+
+  #{$attribute}: $solid-color
+  #{$attribute}: $color
+
+
+
+$main: rgb(90, 152, 208)
+$text: #FEFEFE
+$contrast: darken($main, 10%)
+
+.burger-menu
+    position: relative
+    
 .mobilemenu
-    z-index: 299
+  position: fixed
+  z-index: 600
+  left: 0
+  top: 0
+  height: 100vh
+  width: 100vw
+  transform: translate(-100vw, 0)
+
+  /* ie workaround
+  -ms-transform: translatex(100vw)
+  box-sizing: border-box
+  pointer-events: none
+  padding-top: 125px
+  transition: width 475ms ease-out, transform 450ms ease, border-radius .8s .1s ease
+  border-bottom-right-radius: 100vw
+
+  +alpha-attribute("background-color", rgba($contrast, 0.8), white)
+
+  +from-tablet
+    width: 25vw
+
+  ul
+    height: 100%
     width: 100%
-    height: calc(100vh - 50px)
-    position: fixed
-    left: -100%
-    top: 50px
-    transition: left 0.3s ease
-    display: flex
-    flex-direction: column
-    align-items: center
-    overflow: scroll
-    background: #151515
-    opacity: 0
-    transition: all 0.2s
-    +from-mob
-        background: rgba(0, 0, 0, 0.83)
-        align-items: start
-    &.active
-        left: 0
-        // animation: .7s fade forwards
-        opacity: 1
+    margin: 0
+    padding: 0
+    overflow: auto
+    overflow-x: hidden
+    pointer-events: auto
+
+  li
+    padding-left: 20px
+    list-style: none
+    text-transform: uppercase
+    pointer-events: auto
+    white-space: nowrap
+    box-sizing: border-box
+    transform: translatex(-100vw)
+    +until-tablet
+      padding-left: 0
+
+    /* ie workaround
+    -ms-transform: translatex(-100vw)
+
+    &:last-child
+      margin-bottom: 2em
+
+    a
+      text-decoration: none
+      color: $text
+      text-align: center
+      display: block
+      padding: 1rem
+      font-size: calc(24px - .5vw)
+
+      @media (min-width: 768px)
+        text-align: left
+        padding: .5rem
+
+      &:hover
+        cursor: pointer
+        
+        +alpha-attribute("background-color", rgba(#1F3F68, 0.5), white)
+
+input.hamburger
+  display: none
+
+  &:checked
+    & ~ .mobilemenu
+      transform: translatex(0)
+      border-bottom-right-radius: 0
+
+      li
+        transform: translatex(0)
+
+        +transition
+
+        a
+          padding-right: 15px
+
+    & ~ label
+      > i
+        background-color: transparent
+        transform: rotate(90deg)
+
+        &:before
+          background: #1F3F68
+          transform: translate(-50%, -50%) rotate(315deg)
+
+        &:after
+          background: #1F3F68
+          transform: translate(-50%, -50%) rotate(-315deg)
+          
+
+label.hamburger
+  z-index: 9999
+  position: relative
+  display: block
+  height: 16px
+  width: 24px
+
+  &:hover
+    cursor: pointer
+
+  > i
+    position: absolute
+    width: 100%
+    height: 2px
+    top: 50%
+    background-color: #356EAD
+    pointer-events: auto
+    transition-duration: .35s
+    transition-delay: .35s
+
+    &:before,
+    &:after
+      position: absolute
+      display: block
+      width: 100%
+      height: 2px
+      left: 50%
+      background-color: #356EAD
+      content: ""
+      transition: transform 0.35s
+      transform-origin: 50% 50%
+
+    &:before
+      transform: translate(-50%, -8px)
+
+    &:after
+      transform: translate(-50%, 8px)
+
+label.hamburger
+//   position: fixed
+//   top: 15px
+//   right: 15px
+

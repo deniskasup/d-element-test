@@ -9,29 +9,29 @@ var gulp = require("gulp"),
 
 function _sass() {
     return gulp
-        .src('./assets/template/sass/*.sass')
+        .src('sass/*.sass')
         .pipe(sass())
-        .pipe(gulp.dest('./assets/template/css/'))
+        .pipe(gulp.dest('css/'))
 }
 
 function _postcss() {
     return gulp
-        .src("./assets/template/css/main.css")
+        .src("css/main.css")
         .pipe(postcss([
             autoprefixer(),
             mqpacker()
         ]))
-        .pipe(gulp.dest('./assets/template/css/'));
+        .pipe(gulp.dest('css/'));
 }
 
 function _minify() {
     return gulp
-        .src("./assets/template/css/main.css")
+        .src("css/main.css")
         .pipe(postcss([
             cssnano()
         ]))
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('./assets/template/css/'));
+        .pipe(gulp.dest('css/'));
 }
 
 
@@ -43,7 +43,7 @@ exports.dev = gulp.series(
 
 gulp.task("dev:w", function() {
     gulp.series("dev");
-    gulp.watch("./assets/template/sass/**/*.sass", gulp.series("dev"));
+    gulp.watch("sass/**/*.sass", gulp.series("dev"));
 });
 
 

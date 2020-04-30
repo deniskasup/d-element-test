@@ -11,16 +11,18 @@
 
 %message-input
     width: 100%
-    border: 1px solid #356EAD
+    border: 1px solid rgba(53, 110, 173, 0.4)
     box-sizing: border-box
     border-radius: 10px
-    opacity: 0.4
-    padding: 1.3125rem 2.625rem
+    padding: 1.25rem 2.625rem
     +placeholder
         font-family: Gilroy
         font-size: 1rem
         color: #1F3F68
+        opacity: 0.4
     &:hover
-        opacity: 1
+        border: 1px solid #356ead
+        +placeholder
+            opacity: 0.4
     &:focus
-        opacity: 1
+        border: 1px solid #356ead

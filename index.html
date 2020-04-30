@@ -28,12 +28,12 @@
                     <span class="header__logo-right">A</span>
                 </a>
                 <div class="burger-menu">
-                    <input id="hamburger" class="hamburger" type="checkbox"/>
+                    <input id="hamburger" class="hamburger" type="checkbox" />
                     <label class="hamburger" for="hamburger">
-                      <i></i>
+                        <i></i>
                     </label>
                     <section class="mobilemenu">
-                          <ul>
+                        <ul>
                             <li><a href="#">Our Projects</a></li>
                             <li><a href="contacts.html">Contact Us</a></li>
                             <li><a href="#">About</a></li>
@@ -55,7 +55,7 @@
                         <p class="banner__content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus
                             elit.</p>
-                        <button class="banner__content-button">See Our Project</button>
+                        <button data-popup="#card" class="banner__content-button">See Our Project</button>
                     </div>
                     <img src="img/banner-bg.svg" alt="" class="banner__img">
 
@@ -86,7 +86,7 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="whatwedo__card">
+                        <div class="whatwedo__card" id="card">
                             <div class="whatwedo__card-img">
                                 <div class="whatwedo__card-img-flake">
                                     <svg class="card-icon">
@@ -169,7 +169,7 @@
                                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                                     veniam.</p>
                             </div>
-                            <button class="work__callback">Let’s Talk</button>
+                            <button data-popup='#message-form' class="work__callback">Let’s Talk</button>
                         </div>
                     </section>
                     <!-- /WORK -->
@@ -251,16 +251,37 @@
         </main>
 
 
+
+        <!-- POPUP -->
+
+        <div id="message-form" class="message-form__container">
+            <form action="" class="message-form">
+                <h3 class="message-form__title header3">SEND US MESSAGE</h3>
+                <label for="form-name">
+                    <span>Full Name</span>
+                    <input placeholder="Your Name" type="text" id='form-name'>
+                </label>
+                <label for="form-email">
+                    <span>Email</span>
+                    <input placeholder="Your email" type="text" id='form-email'>
+                </label>
+                <label for="form-message">
+                    <span>Full message</span>
+                    <textarea name="form-message" id="form-message" placeholder="Your Message"></textarea>
+                </label>
+                <button class="message-form__button">SUBMIT</button>
+            </form>
+        </div>
+
+
+
     </div>
 
-    <script>
-        window.onload = function () {
-            if (window.innerWidth > 767) {
-                buttonPos = document.querySelector('.work__callback').getBoundingClientRect().left;
-                document.querySelector('.line').setAttribute('style', 'width: ' + (buttonPos + 220) + 'px');
-            }
-        }
-    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/popup.js"></script>
 </body>
 
 </html>

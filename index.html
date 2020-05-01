@@ -12,7 +12,7 @@
     <title>TEst</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main2.css">
 </head>
 
 <body>
@@ -255,21 +255,22 @@
         <!-- POPUP -->
 
         <div id="message-form" class="message-form__container">
-            <form action="" class="message-form">
+            <form action="" method="POST" class="message-form">
                 <h3 class="message-form__title header3">SEND US MESSAGE</h3>
                 <label for="form-name">
                     <span>Full Name</span>
-                    <input placeholder="Your Name" type="text" id='form-name'>
+                    <input placeholder="Your Name" name='name' type="text" id='form-name' required>
                 </label>
                 <label for="form-email">
                     <span>Email</span>
-                    <input placeholder="Your email" type="text" id='form-email'>
+                    <input placeholder="Your email" name='email' type="text" id='form-email' required>
                 </label>
                 <label for="form-message">
                     <span>Full message</span>
-                    <textarea name="form-message" id="form-message" placeholder="Your Message"></textarea>
+                    <textarea id="form-message" name="message-text" type='text' placeholder="Your Message" required></textarea>
                 </label>
-                <button class="message-form__button">SUBMIT</button>
+                <button type='button' class="message-form__button">SUBMIT</button>
+                <div class="message-form__result"></div>
             </form>
         </div>
 

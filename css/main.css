@@ -375,6 +375,18 @@ a, span, p {
   border: 1px solid #356ead;
 }
 
+.message-form input:required, .message-form textarea:required {
+  border: 1px solid #356ead;
+}
+
+.message-form input:valid, .message-form textarea:valid {
+  border: 1px solid rgba(69, 219, 31, 0.7);
+}
+
+.message-form input:invalid, .message-form textarea:invalid {
+  border: 1px solid rgba(219, 31, 31, 0.7);
+}
+
 .icon {
   width: 1.5rem;
   height: 1.5rem;
@@ -2035,6 +2047,20 @@ label.hamburger > i:after {
   padding: 1.4375rem;
   line-height: 1.875rem;
   font-weight: 600;
+}
+
+.message-form__resilt {
+  padding: 50px;
+  background: white;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .popup__active {

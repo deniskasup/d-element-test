@@ -1,4 +1,5 @@
 let popupButtons = $('[data-popup]');
+let html = $('html');
 let templates =
 {
     container: '<div class="popup__background"><div class="popup__container"></div></div>',
@@ -25,14 +26,10 @@ popupButtons.click(function (e) {
     });
 });
 
-
-
-
 // создаем контейнеры
 let createContainer = function () {
     $('body').prepend(templates.container)
 };
-
 
 // открыть попап
 let openPopup = function (e) {
@@ -40,28 +37,40 @@ let openPopup = function (e) {
     popupObj = $(e)
 
     createContainer()
+    let popupContainer = $('.popup__container');
 
     let clone = popupObj.clone()
-    $('.popup__container').append(clone)
+    popupContainer.append(clone)
     clone.addClass('popup__window')
     clone.prepend(templates.close);
 
     setTimeout(() => $('.popup__background').addClass('opened'), 100)
 
-
     // запрет прокрутки
-    $('html').addClass('popup__active')
+    html.addClass('popup__active')
     
     // центрирование, если высота формы меньше экрана 
     if (document.querySelector('.popup__window').scrollHeight <= $(window).height()) {
-        $('.popup__container').css('align-items','center')
+        popupContainer.css('align-items','center')
     }
 
 };
 
 // закрыть попап
 let hidePopup = function () {
-    $('html').removeClass('popup__active')
+    html.removeClass('popup__active')
     $('.popup__background').removeClass('opened')
     setTimeout((()=> $('.popup__background').remove()), 200)
 };
+
+
+
+// FORM DATA
+
+let  formFunc = function (elem) {
+    elem.onsubmit = async (e) => {
+        e.preventDefault();
+        let response = await fetch()
+
+    }
+}

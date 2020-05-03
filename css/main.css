@@ -2078,6 +2078,7 @@ label.hamburger > i:after {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  text-align: center;
   -ms-flex-item-align: center;
       align-self: center;
   display: -webkit-box;

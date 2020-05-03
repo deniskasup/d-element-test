@@ -20,9 +20,7 @@ function validate(form_id,email) {
         });
         let result = await response.text();
 
-        console.log('Успешно отправлено');
-
-
+        // Успешно
         let popupWindow = document.querySelector('.popup__window')
         popupWindow.classList.add('sended')
         popupWindow.insertAdjacentHTML('afterend', '<div class="success"> Успешно отправлено!</div>')

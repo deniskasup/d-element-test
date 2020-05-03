@@ -1,76 +1,82 @@
-let popupButtons = $('[data-popup]');
-let html = $('html');
+let popupButtons = document.querySelectorAll('[data-popup]')
+const html = document.querySelector('html')
 let templates =
 {
     container: '<div class="popup__background"><div class="popup__container"></div></div>',
-    close: '<button class="popup__close"><svg class= "icon" ><use xlink: href="img/sprite.svg#close"></use></svg ></button >'
+    close: '<button class="popup__close"><svg class= "icon" ><use xlink: href="img/sprite.svg#close"></use></svg ></button >',
+    anchor: '<div class="anchor"></div>'
 }
 
 
-//  отловить нажатие
-popupButtons.click(function (e) {
-    openPopup($(e.target).attr('data-popup'));
+popupButtons.forEach(function (button) {
+    let popupId = button.getAttribute('data-popup');
+    button.addEventListener('click', function (event) {
+        openPopup(popupId);
+        onClickClose(document.querySelector(popupId));
+        event.stopImmediatePropagation();
+    });
 
-    // закрытие по клику вне блока
-    $(document).mouseup(function (e) {
-        let popupWindow = $(".popup__window");
-        if ($('.popup__background').length > 0) {
-            if (!popupWindow.is(e.target) && popupWindow.has(e.target).length === 0) {
-                hidePopup();
-            }
-        }
-    });
-    // закрыть на крестик
-    $('.popup__close').click(() => {
-        hidePopup();
-    });
 });
 
-// создаем контейнеры
-let createContainer = function () {
-    $('body').prepend(templates.container)
-};
-
-// открыть попап
-let openPopup = function (e) {
-
-    popupObj = $(e)
-
-    createContainer()
-    let popupContainer = $('.popup__container');
-
-    let clone = popupObj.clone()
-    popupContainer.append(clone)
-    clone.addClass('popup__window')
-    clone.prepend(templates.close);
-
-    setTimeout(() => $('.popup__background').addClass('opened'), 100)
+let openPopup = function (popupId) {
+    createTemplates();
+    // затемнение
+    setTimeout(() => {
+        document.querySelector('.popup__background').classList.add('opened');
+    }, 100);
 
     // запрет прокрутки
-    html.addClass('popup__active')
+    html.classList.add('popup__active');
+
+    let popupObj = document.querySelector(popupId);
+    let popupContainer = document.querySelector('.popup__container');
+
+    // якорь, чтобы вернуть элемент обратно
+    popupObj.insertAdjacentHTML('afterend', templates.anchor);
+
+    popupContainer.append(popupObj);
+    popupObj.classList.add('popup__window');
     
-    // центрирование, если высота формы меньше экрана 
-    if (document.querySelector('.popup__window').scrollHeight <= $(window).height()) {
-        popupContainer.css('align-items','center')
-    }
+    // центрирование формы на экране
+    if (document.querySelector('.popup__window').scrollHeight <= window.outerHeight) {
+        popupContainer.style.alignItems = 'center';
+    };
 
+    // крестик
+    popupObj.insertAdjacentHTML('afterbegin', templates.close);
 };
 
-// закрыть попап
-let hidePopup = function () {
-    html.removeClass('popup__active')
-    $('.popup__background').removeClass('opened')
-    setTimeout((()=> $('.popup__background').remove()), 200)
-};
-
-
-
-// FORM DATA
-
-let  formFunc = function (elem) {
-    elem.onsubmit = async (e) => {
-        e.preventDefault();
-        let response = await fetch()
-
+function onClickClose(elem) {
+    function outsideClickListener(event) {
+        if (!elem.contains(event.target)) {  // проверяем, что клик не по элементу и элемент виде
+            cleaning();
+            document.removeEventListener('click', outsideClickListener);
+        }
     }
+
+    document.addEventListener('click', outsideClickListener)
+    document.querySelector('.popup__close').onclick = () => {
+        cleaning();
+        document.removeEventListener('click', outsideClickListener);
+
+    };
 }
+
+let cleaning = () => {
+    let anchor = document.querySelector('.anchor');
+    let openedPopup = document.querySelector('.popup__window');
+    anchor.after(openedPopup);
+    anchor.remove();
+    openedPopup.classList.remove('sended')
+    openedPopup.classList.remove('popup__window');
+    html.classList.remove('popup__active');
+    document.querySelector('.popup__background').remove();
+    // для форм
+    document.querySelector('.popup__close').remove();
+};
+
+// создать обертку
+let createTemplates = () => {
+    document.querySelector('body').insertAdjacentHTML('afterbegin', templates.container);
+}
+

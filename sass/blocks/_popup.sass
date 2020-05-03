@@ -31,10 +31,13 @@
         position: relative
         width: 100%
         display: block
+        height: max-content
         // align-items: center
         // justify-content: space-around
         +until-tablet
             padding: 20px
+        &.sended
+            display: none
     &__close
         position: absolute
         top: 10px
@@ -47,3 +50,16 @@
     width: 0
     height: 0
     display: none
+
+.success 
+    background: white
+    padding: 40px
+    border-radius: 10px
+    height: min-content
+    align-self: center
+    display: flex
+    align-items: center
+    justify-content: space-around
+    font-size: 2rem
+    font-weight: bold
+    color: #1F3F68

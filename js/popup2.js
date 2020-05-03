@@ -1,70 +1,36 @@
-let popupButtons = document.querySelectorAll('[data-popup]')
-const html = document.querySelector('html')
+let popupButtons = document.querySelectorAll('[data-popup]');
+const html = document.querySelector('html');
 let templates =
 {
     container: '<div class="popup__background"><div class="popup__container"></div></div>',
     close: '<button class="popup__close"><svg class= "icon" ><use xlink: href="img/sprite.svg#close"></use></svg ></button >',
     anchor: '<div class="anchor"></div>'
-}
+};
 
 
 popupButtons.forEach(function (button) {
     let popupId = button.getAttribute('data-popup')
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
+
         openPopup(popupId);
-        closePopup();
+        onClickClose(document.querySelector(popupId));
+        event.stopImmediatePropagation();
 
     });
 
 });
 
-
-
-let closePopup = function (popupId) {
-
-    // закрыть по крестику
-    document.querySelector('.popup__close').onclick = () => {
-        cleaning();
-    };
-
-    onClickClose(popupId)
-
-};
-
-
-function onClickClose(elem) {
-    function outsideClickListener(event) {
-        if (!elem.contains(event.target)) {  // проверяем, что клик не по элементу и элемент виде
-            cleaning()
-            document.removeEventListener('click', outsideClickListener);
-        }
-    }
-    
-    document.addEventListener('click', outsideClickListener)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let openPopup = function (popupId) {
     createTemplates();
+    setTimeout(() => {
+        document.querySelector('.popup__background').classList.add('opened')
+    }, 100)
+    
+    let popupObj = document.querySelector(popupId);
 
     // запрет прокрутки
     html.classList.add('popup__active');
-
-    let popupObj = document.querySelector(popupId);
+    
 
     // якорь, чтобы вернуть элемент обратно
     popupObj.insertAdjacentHTML('afterend', templates.anchor);
@@ -74,8 +40,6 @@ let openPopup = function (popupId) {
     popupObj.insertAdjacentHTML('afterbegin', templates.close);
 
 }
-
-
 
 
 let cleaning = () => {
@@ -93,5 +57,24 @@ let cleaning = () => {
 let createTemplates = () => {
     document.querySelector('body').insertAdjacentHTML('afterbegin', templates.container);
 
+};
+
+
+function onClickClose(elem) {
+    function outsideClickListener(event) {
+        if (!elem.contains(event.target)) {  // проверяем, что клик не по элементу и элемент виде
+            cleaning()
+            document.removeEventListener('click', outsideClickListener);
+        }
+    }
+
+    document.addEventListener('click', outsideClickListener)
+
+    document.querySelector('.popup__close').onclick = () => {
+        cleaning();
+        document.removeEventListener('click', outsideClickListener);
+    };
 }
+
+
 

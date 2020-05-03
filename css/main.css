@@ -371,22 +371,6 @@ a, span, p {
   opacity: 0.4;
 }
 
-.message-form input:focus, .message-form textarea:focus {
-  border: 1px solid #356ead;
-}
-
-.message-form input:required, .message-form textarea:required {
-  border: 1px solid #356ead;
-}
-
-.message-form input:valid, .message-form textarea:valid {
-  border: 1px solid rgba(69, 219, 31, 0.7);
-}
-
-.message-form input:invalid, .message-form textarea:invalid {
-  border: 1px solid rgba(219, 31, 31, 0.7);
-}
-
 .icon {
   width: 1.5rem;
   height: 1.5rem;
@@ -1932,6 +1916,10 @@ label.hamburger > i:after {
   border-radius: 10px;
 }
 
+.message-form.sended {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .message-form {
     padding: 2.5rem;
@@ -2049,12 +2037,19 @@ label.hamburger > i:after {
   position: relative;
   width: 100%;
   display: block;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 @media screen and (max-width: 767px) {
   .popup__window {
     padding: 20px;
   }
+}
+
+.popup__window.sended {
+  display: none;
 }
 
 .popup__close {
@@ -2074,5 +2069,27 @@ label.hamburger > i:after {
   width: 0;
   height: 0;
   display: none;
+}
+
+.success {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1F3F68;
 }
 /*# sourceMappingURL=main.css.map */

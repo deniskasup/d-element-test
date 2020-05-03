@@ -2069,4 +2069,10 @@ label.hamburger > i:after {
     right: -5px;
   }
 }
+
+.anchor {
+  width: 0;
+  height: 0;
+  display: none;
+}
 /*# sourceMappingURL=main.css.map */

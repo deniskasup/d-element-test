@@ -20,6 +20,7 @@
     &__title
         margin-bottom: 3rem
     & label
+        margin-bottom: 1rem
         color: rgba(31, 63, 104, 0.8)
         font-weight: 500
         display: flex
@@ -29,10 +30,17 @@
         & span
             margin-bottom: 0.5rem
             line-height: 1.875rem
+            &.error
+                text-align: center
+                font-size: 80%
+                padding-top: 0.2rem
+                height: 1rem
+                width: 100%
+                line-height: 1rem
+                color: #bd6363
     & input, textarea
         @extend %message-input
         resize: none
-        margin-bottom: 2rem
     & textarea
         height: 144px
     & button

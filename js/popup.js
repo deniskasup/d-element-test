@@ -8,8 +8,9 @@ let templates =
 }
 
 
-popupButtons.forEach(function (button) {
+popupButtons.forEach( button => {
     let popupId = button.getAttribute('data-popup');
+    
     button.addEventListener('click', function (event) {
         openPopup(popupId);
         onClickClose(document.querySelector(popupId));
@@ -18,8 +19,9 @@ popupButtons.forEach(function (button) {
 
 });
 
-let openPopup = function (popupId) {
+let openPopup = popupId => {
     createTemplates();
+
     // затемнение
     setTimeout(() => {
         document.querySelector('.popup__background').classList.add('opened');
@@ -46,7 +48,7 @@ let openPopup = function (popupId) {
     popupObj.insertAdjacentHTML('afterbegin', templates.close);
 };
 
-function onClickClose(elem) {
+let onClickClose = elem => {
     function outsideClickListener(event) {
         if (!elem.contains(event.target)) {  // проверяем, что клик не по элементу и элемент виде
             cleaning();

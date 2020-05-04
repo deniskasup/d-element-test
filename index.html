@@ -56,7 +56,7 @@
                         <p class="banner__content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus
                             elit.</p>
-                        <button data-popup="#card" class="banner__content-button">See Our Project</button>
+                        <button  class="banner__content-button">See Our Project</button>
                     </div>
                     <img src="img/banner-bg.svg" alt="" class="banner__img">
 
@@ -170,7 +170,7 @@
                                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                                     veniam.</p>
                             </div>
-                            <button data-popup='#message-form' class="work__callback">Let’s Talk</button>
+                            <button data-popup='#message-form-container' class="work__callback">Let’s Talk</button>
                         </div>
                     </section>
                     <!-- /WORK -->
@@ -251,27 +251,30 @@
 
 
         </main>
-
-
+        
 
         <!-- POPUP -->
 
-        <div id="message-form" class="message-form__container">
-            <form action="" method="POST" id='form-message' class="message-form">
+        <div id="message-form-container" class="message-form__container">
+            <form id='message-form' class="message-form">
                 <h3 class="message-form__title header3">SEND US MESSAGE</h3>
                 <label for="form-name">
                     <span>Full Name</span>
-                    <input placeholder="Your Name" name='name' type="text" id='form-name' required>
+                    <input placeholder="Your Name" name='name' type="text" id='form-name'>
+                    <span class="error"></span>
                 </label>
                 <label for="form-email">
                     <span>Email</span>
-                    <input placeholder="Your email" name='email' type="text" id='form-email' required>
+                    <input placeholder="Your email" name='email' type="text" id='form-email'>
+                    <span class="error"></span>
                 </label>
+                
                 <label for="message-text">
                     <span>Full message</span>
-                    <textarea id="message-text" name="message-text" type='text' placeholder="Your Message" required></textarea>
+                    <textarea id="message-text" name="messageText" type='text' placeholder="Your Message"></textarea>
+                    <span class="error"></span>
                 </label>
-                <button type='submit' class="message-form__button">SUBMIT</button>
+                <button name="button" disabled type='submit' class="message-form__button">SUBMIT</button>
                 <div class="message-form__result"></div>
             </form>
         </div>
@@ -283,8 +286,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
     <script src="js/validate.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/popup.js"></script>
 </body>
 
